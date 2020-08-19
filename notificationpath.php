@@ -1,20 +1,15 @@
 <?php
 $con = mysqli_connect( 'localhost', 'alicheaib', 'alicheaib1', 'security server' );
-if ( !empty( $senderid ) ) {
-    if ( isset( $_POST['sender'] ) ) {
-        $senderid = $_POST['sender'];
-    }
-}
-
 // Check connection
 if ( mysqli_connect_errno() )
  {
     echo 'Failed to connect to MySQL: ' . mysqli_connect_error();
 }
-if ( !empty( $senderid ) ) {
-    # code...
-    $sql = "SELECT * from 'notification'  where poice like '".$senderid."';";
-}
+# code...
+$sql = "SELECT `user`.`id`, `police village`.`police id`
+    FROM `user`
+        , `police village`
+    WHERE `user`.`village` = `police village`.`village name` ;";
 if ( !empty( $result ) ) {
     if ( $result = mysqli_query( $con, $sql ) )
  {

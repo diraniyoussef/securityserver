@@ -12,7 +12,7 @@ if ( mysqli_connect_errno() )
 }
 if ( !empty( $policeid ) ) {
     # code...
-    $sql = "SELECT * from billing where poice like '".$policeid."';";
+    $sql = "SELECT * FROM `billing` WHERE `police `=`$policeid`";
 }
 if ( !empty( $result ) ) {
     if ( $result = mysqli_query( $con, $sql ) )
