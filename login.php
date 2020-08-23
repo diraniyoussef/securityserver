@@ -1,5 +1,5 @@
 <?php
-$con = mysqli_connect( 'localhost', 'root', 'Shmegevod0', 'security_db' );
+//$con = mysqli_connect( 'localhost', 'root', 'Shmegevod0', 'security_db' );
 require 'conc.php';
 if ( isset( $_POST['fullname'] ) && isset( $_POST['phone'] ) )
  {
@@ -10,8 +10,8 @@ if ( isset( $_POST['fullname'] ) && isset( $_POST['phone'] ) )
         {
             echo'fullname and phone is empty';
         } else {
-            $sql = "SELECT * FROM `user` WHERE `fullname`= '$fullname' AND `phone`='$phone'";
-            echo"$fullname,$phone";
+            $sql = "SELECT * FROM `user` WHERE `full_name`= '$fullname' AND `phone`='$phone'";
+            echo"$fullname, $phone \n";
         }
     }
 
