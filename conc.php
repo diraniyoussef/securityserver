@@ -1,12 +1,11 @@
 
 <?php
-
 $host = "localhost";
-$db_user = "alicheaib";
-$db_password = "alicheaib1";
-$db_name = "security server";
+$db_user = "root";
+$db_password = "Shmegevod0";
+$db_name = "security_db";
 
-$con = new mysqli($host,$db_user,$db_password,$db_name);
+$con = new mysqli($host, $db_user, $db_password, $db_name);
 
 if($con)
 {

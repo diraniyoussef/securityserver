@@ -1,5 +1,5 @@
 <?php
-$con = mysqli_connect( 'localhost', 'alicheaib', 'alicheaib1', 'security server' );
+$con = mysqli_connect( 'localhost', 'root', 'Shmegevod0', 'security_db' );
 require 'conc.php';
 if ( isset( $_POST['fullname'] ) && isset( $_POST['phone'] ) )
  {
@@ -24,7 +24,7 @@ if ( isset( $_POST['fullname'] ) && isset( $_POST['phone'] ) )
     $response = array();
 
     if ( mysqli_num_rows( $result ) > 0 )
- {
+    {
         $row = mysqli_fetch_row( $result );
         $fullname = $row[0];
 
