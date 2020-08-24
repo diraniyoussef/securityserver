@@ -1,18 +1,18 @@
 <?php
-$con = mysqli_connect( 'localhost', 'alicheaib', 'alicheaib1', 'security server' );
+$con = mysqli_connect( 'localhost', 'root', 'Shmegevod0', 'security_db' );
 // Check connection
 if ( mysqli_connect_errno() )
- {
+{
     echo 'Failed to connect to MySQL: ' . mysqli_connect_error();
 }
 # code...
-$sql = "SELECT `user`.`id`, `police_village`.`police id`
+$sql = "SELECT `user`.`id`, `police_village`.`police_id`
     FROM `user`
-        , `police village`
+        , `police_village`
     WHERE `user`.`village` = `police_village`.`village_name` ;";
 if ( !empty( $result ) ) {
     if ( $result = mysqli_query( $con, $sql ) )
- {
+    {
         $emparray = array();
         while( $row = mysqli_fetch_assoc( $result ) )
         $emparray[] = $row;
