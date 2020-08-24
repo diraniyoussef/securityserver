@@ -1,6 +1,6 @@
 
 <?php
-$con=mysqli_connect("localhost","alicheaib","alicheaib1","security server");
+$con=mysqli_connect("localhost","root","Shmegevod0","security_db");
 require "conc.php";
 if( isset($_POST['fullname']) && isset($_POST['phone']) && isset($_POST['village']))
 {
@@ -16,13 +16,13 @@ if( isset($_POST['fullname']) && isset($_POST['phone']) && isset($_POST['village
 				if (!empty($phone)) {
 					
 					# code...
-			
-			$sql = "SELECT * FROM `user` WHERE `phone`= '$phone'";
-			echo"$fullname,$phone";
-		}
+					
+					$sql = "SELECT * FROM `user` WHERE `phone`= '$phone'";
+					echo"$fullname, $phone";
+				}
 			}
 	}	
-	$result = mysqli_query($con,$sql);
+	$result = mysqli_query($con, $sql);
 	if (!$result) {
 		die("query failed");
 	
@@ -41,16 +41,19 @@ if( isset($_POST['fullname']) && isset($_POST['phone']) && isset($_POST['village
 	{	
 		echo "result is empty";
 		
-		$sql = "INSERT INTO `user`(`id`, `full name`, `phone`, `village`) VALUES ('','$fullname','$phone','$village')";
+		$sql = "INSERT INTO `user`(`full_name`, `phone`, `village`) VALUES ('$fullname','$phone','$village')";
 	
 		$result = mysqli_query($con,$sql);
 	
-		$code = "reg_success";
-		$message = "User registered. Now you can login...";
-		// Warning is from line 36 an37
-		array_push($response, array("code" =>$code, "message"=>$message));
-		echo json_encode($response);
-			
+		if ( !$result ) {
+			die( 'insert query failed' );
+		} else {
+			$code = "reg_success";
+			$message = "User registered. Now you can login...";
+			// Warning is from line 36 an37
+			array_push($response, array("code" =>$code, "message"=>$message));
+			echo json_encode($response);
+		}
 		
 	}
 } 
