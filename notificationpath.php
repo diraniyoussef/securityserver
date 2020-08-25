@@ -1,18 +1,39 @@
 <?php
-$con = mysqli_connect( 'localhost', 'root', 'Shmegevod0', 'security_db' );
+$con = mysqli_connect( 'localhost', 'root', '', 'security_db' );
 // Check connection
 if ( mysqli_connect_errno() )
 {
     echo 'Failed to connect to MySQL: ' . mysqli_connect_error();
 }
-# code...
-$sql = "SELECT `user`.`id`, `police_village`.`police_id`
-    FROM `user`
-        , `police_village`
-    WHERE `user`.`village` = `police_village`.`village_name` ;";
-if ( !empty( $result ) ) {
-    if ( $result = mysqli_query( $con, $sql ) )
+
+if(  isset($_POST['village']))
+{
+    if ($_SERVER["REQUEST_METHOD"] == "POST") 
     {
+		$village=$_POST['village'];
+		if(empty($village))
+		{
+			echo"village is empty";
+		}
+		else{
+				if (!empty($village)) {
+					
+				# code...
+                    $sql = "SELECT `user`.`id`, `police_village`.`police_id`
+                    FROM `user`
+                        , `police_village`
+                    WHERE `user`.`village` = '$village'AND`police_village`.`village_name`= '$village' ;";
+
+				}
+			}
+	}	
+
+    if ( $result = mysqli_query( $con, $sql ) )
+    {	if (!$result) {
+		die("query failed");
+	
+        }
+        $resultCheck=mysqli_num_rows($result);
         $emparray = array();
         while( $row = mysqli_fetch_assoc( $result ) )
         $emparray[] = $row;
@@ -23,6 +44,7 @@ if ( !empty( $result ) ) {
         mysqli_free_result( $result );
     }
 }
+
 mysqli_close( $con );
 
 ?>

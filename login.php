@@ -1,5 +1,5 @@
 <?php
-//$con = mysqli_connect( 'localhost', 'root', 'Shmegevod0', 'security_db' );
+$con = mysqli_connect( 'localhost', 'root', '', 'security_db' );
 require 'conc.php';
 if ( isset( $_POST['fullname'] ) && isset( $_POST['phone'] ) )
  {
