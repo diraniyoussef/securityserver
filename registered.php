@@ -41,7 +41,7 @@ if( isset($_POST['fullname']) && isset($_POST['phone']) && isset($_POST['village
 	{	
 		echo "result is empty";
 		
-		$sql = "INSERT INTO `user`(`full_name`, `phone`, `village`) VALUES ('$fullname','$phone','$village')";
+		$sql = "INSERT INTO `user`(`full_name`, `phone`, `village`, `password`) VALUES ('$fullname','$phone','$village','$password')";
 	
 		$result = mysqli_query($con,$sql);
 	
