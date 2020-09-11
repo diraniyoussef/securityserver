@@ -2,13 +2,14 @@
 <?php
 $con=mysqli_connect("localhost","root","","security_db");
 require "conc.php";
-if( isset($_POST['fullname']) && isset($_POST['phone']) && isset($_POST['village']))
+if( isset($_POST['fullname']) && isset($_POST['phone']) && isset($_POST['village']) && isset( $_POST['phone'] ))
 {
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$fullname = $_POST['fullname'];
 		$phone = $_POST['phone'];
 		$village=$_POST['village'];
-		if(empty($fullname)&&empty($phone))
+		$password= $_POST['password'];
+		if(empty($fullname)&&empty($phone)&&empty($password))
 		{
 			echo"fullname and phone is empty";
 		}
