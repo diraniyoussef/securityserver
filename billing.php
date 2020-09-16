@@ -1,5 +1,5 @@
 <?php
-$con = mysqli_connect( 'localhost', 'alicheaib', 'alicheaib1', 'security server' );
+$con = mysqli_connect( 'localhost', 'root', 'Shmegevod0', 'security_db' );
 if ( !empty( $policeid ) ) {
     if ( isset( $_POST['police'] ) ) {
         $policeid = $_POST['police'];

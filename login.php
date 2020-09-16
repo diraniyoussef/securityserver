@@ -1,16 +1,17 @@
 <?php
-//$con = mysqli_connect( 'localhost', 'root', 'Shmegevod0', 'security_db' );
+$con = mysqli_connect( 'localhost', 'root', '', 'security_db' );
 require 'conc.php';
-if ( isset( $_POST['fullname'] ) && isset( $_POST['phone'] ) )
+if ( isset( $_POST['fullname'] ) && isset( $_POST['phone'] ) && isset( $_POST['phone'] ) )
  {
     if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
         $fullname = $_POST['fullname'];
         $phone = $_POST['phone'];
+        $password= $_POST['password'];
         if ( empty( $fullname ) && empty( $phone ) )
         {
             echo'fullname and phone is empty';
         } else {
-            $sql = "SELECT * FROM `user` WHERE `full_name`= '$fullname' AND `phone`='$phone'";
+            $sql = "SELECT * FROM `user` WHERE `paasword`= '$password' AND `phone`='$phone'";
             echo"$fullname, $phone \n";
         }
     }

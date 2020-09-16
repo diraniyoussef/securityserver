@@ -1,14 +1,15 @@
 
 <?php
-$con=mysqli_connect("localhost","root","Shmegevod0","security_db");
+$con=mysqli_connect("localhost","root","","security_db");
 require "conc.php";
-if( isset($_POST['fullname']) && isset($_POST['phone']) && isset($_POST['village']))
+if( isset($_POST['fullname']) && isset($_POST['phone']) && isset($_POST['village']) && isset( $_POST['phone'] ))
 {
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$fullname = $_POST['fullname'];
 		$phone = $_POST['phone'];
 		$village=$_POST['village'];
-		if(empty($fullname)&&empty($phone))
+		$password= $_POST['password'];
+		if(empty($fullname)&&empty($phone)&&empty($password))
 		{
 			echo"fullname and phone is empty";
 		}
@@ -41,7 +42,7 @@ if( isset($_POST['fullname']) && isset($_POST['phone']) && isset($_POST['village
 	{	
 		echo "result is empty";
 		
-		$sql = "INSERT INTO `user`(`full_name`, `phone`, `village`) VALUES ('$fullname','$phone','$village')";
+		$sql = "INSERT INTO `user`(`full_name`, `phone`, `village`, `password`) VALUES ('$fullname','$phone','$village','$password')";
 	
 		$result = mysqli_query($con,$sql);
 	
