@@ -1,5 +1,5 @@
 <?php
-$con = mysqli_connect( 'localhost', 'root', 'Shmegevod0', 'security_db2' );
+require_once 'conc.php';
 
 // Check connection
 if ( mysqli_connect_errno() ) 
