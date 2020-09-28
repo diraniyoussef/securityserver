@@ -1,10 +1,5 @@
 <?php
-$con = mysqli_connect( 'localhost', 'root', '', 'security_db' );
-// Check connection
-if ( mysqli_connect_errno() )
-{
-    echo 'Failed to connect to MySQL: ' . mysqli_connect_error();
-}
+require_once 'conc.php';
 
 if(  isset($_POST['village']))
 {

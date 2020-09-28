@@ -1,8 +1,9 @@
 <?php
-$con = mysqli_connect( 'localhost', 'root', '', 'security_db' );
+$con = mysqli_connect( 'localhost', 'root', 'Shmegevod0', 'security_db2' );
+
 // Check connection
-if ( mysqli_connect_errno() )
- {
+if ( mysqli_connect_errno() ) 
+{
     echo 'Failed to connect to MySQL: ' . mysqli_connect_error();
 }
 

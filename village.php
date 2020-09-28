@@ -1,25 +1,19 @@
 <?php
-$con = mysqli_connect( 'localhost', 'root', '', 'security_db' );
-// Check connection
-if ( mysqli_connect_errno() )
- {
-    echo 'Failed to connect to MySQL: ' . mysqli_connect_error();
-}
+require_once 'conc.php';
 
 $sql = 'SELECT * FROM `village`;';
 
 if ( $result = mysqli_query( $con, $sql ) )
- {
+{
     if ( !$result ) {
         die( 'query failed' );
-
     }
-    $resultCheck = mysqli_num_rows( $result );
-    $emparray = array();
+    //$resultCheck = mysqli_num_rows( $result );
+    $village_array = array();
     while( $row = mysqli_fetch_assoc( $result ) )
-    $emparray[] = $row;
+        $village_array[] = $row;
 
-    echo( json_encode( $emparray ) );
+    echo( json_encode( $village_array ) );
 
     // Free result set
     mysqli_free_result( $result );
