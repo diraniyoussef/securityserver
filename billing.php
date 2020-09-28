@@ -1,5 +1,4 @@
-<?php
-$con = mysqli_connect( 'localhost', 'root', 'Shmegevod0', 'security_db2' );
+<?phprequire_once 'conc.php';
 if ( !empty( $policeid ) ) {
     if ( isset( $_POST['police'] ) ) {
         $policeid = $_POST['police'];
