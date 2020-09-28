@@ -1,5 +1,5 @@
 <?php
-$con = mysqli_connect( 'localhost', 'root', 'Shmegevod0', 'security_db' );
+$con = mysqli_connect( 'localhost', 'root', 'Shmegevod0', 'security_db2' );
 if ( !empty( $policeid ) ) {
     if ( isset( $_POST['police'] ) ) {
         $policeid = $_POST['police'];
@@ -16,7 +16,7 @@ if ( !empty( $policeid ) ) {
 }
 if ( !empty( $result ) ) {
     if ( $result = mysqli_query( $con, $sql ) )
- {
+    {
         $emparray = array();
         while( $row = mysqli_fetch_assoc( $result ) )
         $emparray[] = $row;

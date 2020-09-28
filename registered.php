@@ -1,6 +1,5 @@
 
 <?php
-$con=mysqli_connect("localhost","root","","security_db");
 require "conc.php";
 if( isset($_POST['fullname']) && isset($_POST['phone']) && isset($_POST['village']) && isset( $_POST['phone'] ))
 {
